@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+jar.baseName = 'sync-parameter'
+version = '1.0'
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    jcenter()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+	compile 'org.jsoup:jsoup:1.7.2'
+}
+jar {
+  from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
+// Encoding
+def defaultEncoding = 'UTF-8'
+compileJava {
+    options.encoding = defaultEncoding  // affect */java under src/main/java
+}
+
+compileTestJava {
+    options.encoding = defaultEncoding  // affect */java under src/test/java
+}
