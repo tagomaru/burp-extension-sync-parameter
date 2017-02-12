@@ -126,7 +126,7 @@ public class BurpExtender implements IBurpExtender, IProxyListener, IHttpListene
 
 	@Override
 	public String getTabCaption() {
-		return "Sync";
+		return "CSRF Token Tracker";
 	}
 
 	@Override
